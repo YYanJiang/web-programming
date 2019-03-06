@@ -1,0 +1,83 @@
+<article>
+  <header>
+    <h1>Hannibal</h1>
+  </header>
+{{#if user_id}}
+	<div class="dropdown" id="dropdown">
+	  <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">Click Me!
+	  <span class="caret"></span></button>
+	  <ul class="dropdown-menu">
+	    <li><a href="http://localhost:3000/hannibal/user/private/{{user_id}}">Edit your profile</a></li>
+	    <li><a href="http://localhost:3000/hannibal/postItems/{{user_id}}">Upload your item</a></li>
+	    <li><a href="http://localhost:3000/hannibal/logout">Logout</a></li>
+	  </ul>
+	</div>
+{{else}}
+	<a class="btn btn-success" href="http://localhost:3000/hannibal/login" id = "navi1" role="button">Login</a>
+{{/if}}
+  {{#if error}}
+  <div id="login-error" class="error">
+    <h3>Error:</h3>
+    {{ error }}
+  </div>
+   {{/if}}
+  <p id="sentence">We're better than 'ℇ bay' !</p>
+
+<div class="row">
+  <div class="col-sm-12">
+    <form class="key-form" method="post">
+      <div class="form-group">
+       <select class="form-control" value="{{category_name}}" id="search" name="search" style="width:100px;height:40px;float:left" >
+          <option value='all'> all </option> 
+          {{#each category_products}}
+          <option value='{{category_name}}'>{{category_name}}</option> 
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="keyword" class="form-control" name="keyword" id="keyword" value = "{{keyword}}" style=" width:200px;height:40px;float:left"/>
+        <button type="submit" class="btn btn-default" style="height:40px;float:left"> Search </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<h2>Shop By Categories</h2>
+  <ul class = "navi">
+  {{#each category_products}}
+   <li><a href='#{{category_name}}'>{{category_name}}</a></li>
+  {{/each}}  
+  </ul>
+
+  {{#each category_products}}
+    <div class = "categoryBar page-header" id= '{{category_name}}'>
+    {{category_name}}
+    </div>
+    <div class = "categoryProducts">
+  
+    {{#each IdandNames}}
+    <div class = "grids">
+    <div class = "grid_pics">
+    <a href="http://localhost:3000/hannibal/product/{{product_id}}">
+    <img src='{{product_pic}}' width="270px" height="200px">
+    </a>
+    </div>
+    <span class = "names">
+    <a class = "names" href="http://localhost:3000/hannibal/product/{{product_id}}">
+    {{product_name}}
+    </a>
+    </span>
+    </div>
+  {{/each}}
+
+    </div>
+  {{/each}}
+</article>
+
+
+
+
+

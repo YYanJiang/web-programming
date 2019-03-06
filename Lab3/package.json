@@ -1,0 +1,19 @@
+{
+  "name": "cs-546-lab3",
+  "version": "1.0.0",
+  "description": "CS546-Lab3",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yanyan Jiang 10430965",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.2"
+  }
+}
